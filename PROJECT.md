@@ -24,7 +24,7 @@ A web-based digital Magic 8 Ball that preserves the classic ritual: the user pri
 
 ## Repository
 Source of truth: https://github.com/JohnHoaglun/Enhanced-Magic-8-Ball-Web
-Branch: `main`
+Branch: `dev` (working branch, created from `main`)
 
 ## Credentials
 N/A — no credentials required (offline app, no network services)
