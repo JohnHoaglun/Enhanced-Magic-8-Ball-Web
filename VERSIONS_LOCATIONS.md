@@ -8,3 +8,4 @@
 |---|---|---|
 | PROJECT.md | status section | 0.0.0 |
 | SUMMARY.md | latest changelog entry | v0.0.0 |
+| package.json | `version` field | 0.0.0 |

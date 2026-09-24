@@ -1,0 +1,9 @@
+{
+  "id": "all-sayings",
+  "name": "Magic 8 Ball — All Sayings",
+  "answers": {
+    "yes": ["It is certain", "Yes", "Outlook good"],
+    "maybe": ["Ask again later", "Concentrate and ask again"],
+    "no": ["My reply is no", "Very doubtful"]
+  }
+}
