@@ -16,15 +16,15 @@ A web-based digital Magic 8 Ball that preserves the classic ritual: the user pri
 - **Catalog:** Bundled JSON theme packs (original 20 + Sarcastic, Surfer, Sports, Weather, Tech, Movie-Inspired, and Rock-Inspired packs); sayings kept separate from application code; full catalog enabled by default with no theme selector at launch
 - **Offline:** Fully functional after initial load; catalog, artwork, and deck state stored locally (e.g. localStorage); no runtime network requests
 - **Constraints:** No question input, no sound, no haptics, no analytics/telemetry/accounts, no visible answer history or disclaimer text; honor `prefers-reduced-motion`; screen-reader announcement of the answer
-- **Stack:** Undecided — to be determined in PLAN.md during the plan phase (static web app, no backend)
+- **Stack:** Vite + vanilla TypeScript (no framework); Vitest (node + jsdom), `tsc --noEmit`; static PWA with Workbox service-worker precache (vite-plugin-pwa)
 
 ## Status
-**Version:** 0.0.0
-**Phase:** Pre-plan. Product spec and visual direction are complete; implementation has not started.
+**Version:** 0.0.1
+**Phase:** v0.0.1 shipped 2026-09-23. Full catalog (101 sayings), 50/25/25 weighted no-repeat engine with persistent decks, visual implementation matching the approved idle concept, offline PWA (Workbox precache incl. icon). All gates green (typecheck, 21 tests, build, SW, no-external-URLs, visual review).
 
 ## Repository
 Source of truth: https://github.com/JohnHoaglun/Enhanced-Magic-8-Ball-Web
-Branch: `main`
+Branch: `dev` (working branch, created from `main`)
 
 ## Credentials
 N/A — no credentials required (offline app, no network services)

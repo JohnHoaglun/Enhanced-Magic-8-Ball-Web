@@ -1,12 +1,18 @@
-# TODO: Enhanced Magic 8 Ball
+# TODO: Enhanced Magic 8 Ball (v0.0.1)
 ## Status Legend
 [ ] TODO   [~] IN_PROGRESS   [!] BLOCKED   [x] DONE
 ## Work Items
 ### High Priority
-- [ ] Plan the web build — stack, asset pipeline, deterministic test seams, `scripts/verify.sh` (agent: build, target: PLAN.md via plan phase)
-### Medium Priority
-- [ ] Implement the web app per `Magic 8 Ball -- Product Spec.md` (after plan approval)
+- [x] Wave 0 — persist plan; bootstrap Vite+TS+PWA scaffold, pinned contracts, verify.sh (build) — verify.sh green at shell app
+- [x] Wave 1E — full catalog (101 sayings, spec-verified) + engine: 50/25/25 weighted per-category no-repeat decks, persistence, deterministic tests (smarter)
+- [x] Wave 1U — UI: state machine, layout, ball, answer window, keyboard a11y, reduced motion (smarter)
+- [x] Wave 1I — custom 8-ball icon (SVG) (smarter)
+- [x] Wave 2 — compose: integration, offline SW check, external-request scan, ratio gate (build)
+- [x] Release — version 0.0.0→0.0.1, docs, atomic commit + push `origin/dev` (build)
 ### Low Priority / Backlog
-- [ ] App/site icon — glossy black 8-ball showing only the white "8" emblem, no answer window (spec requirement for launch)
+- [x] Manual visual review vs approved idle PNG (longest-saying wrapping, no glow) at release gate — passed via headless Chrome screenshots (emblem centered, content-sized window, no clipping)
 ## Recent Updates
+- [2026-09-23 22:15] v0.0.1 shipped on `dev`: 101-saying catalog, weighted no-repeat engine with persistent decks, visual implementation (emblem centered per approved concept; content-sized answer window per spec), icon, offline PWA. All gates green; ratio 51.6%
+- [2026-09-23 22:05] Wave 0 bootstrap complete: Vite 7 + TS 5.9 + Vitest 4 + PWA (Workbox SW) scaffold; engine/UI contracts pinned with working stubs; `scripts/verify.sh` green (typecheck, tests, build, SW generated, no external URLs)
+- [2026-09-23 22:10] Plan approved (Vite + vanilla TS, static PWA w/ service worker); PLAN.md persisted with pinned contracts; lanes E/U/I mapped to `smarter`
 - [2026-09-23 21:35] Created project from `JohnHoaglun/Enhanced-Magic-8-Ball-Web` (`main`); repo AGENTS.md rewritten for web; docs scaffolded at v0.0.0
