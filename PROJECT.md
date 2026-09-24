@@ -19,8 +19,8 @@ A web-based digital Magic 8 Ball that preserves the classic ritual: the user pri
 - **Stack:** Vite + vanilla TypeScript (no framework); Vitest (node + jsdom), `tsc --noEmit`; static PWA with Workbox service-worker precache (vite-plugin-pwa)
 
 ## Status
-**Version:** 0.0.0
-**Phase:** Build (v0.0.1 in progress). Plan approved 2026-09-23; product spec and visual direction complete.
+**Version:** 0.0.1
+**Phase:** v0.0.1 shipped 2026-09-23. Full catalog (101 sayings), 50/25/25 weighted no-repeat engine with persistent decks, visual implementation matching the approved idle concept, offline PWA (Workbox precache incl. icon). All gates green (typecheck, 21 tests, build, SW, no-external-URLs, visual review).
 
 ## Repository
 Source of truth: https://github.com/JohnHoaglun/Enhanced-Magic-8-Ball-Web

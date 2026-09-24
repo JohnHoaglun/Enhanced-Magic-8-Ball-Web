@@ -40,7 +40,7 @@ tests/ui.test.ts           UI state machine tests (lane U)
      "answers": { "yes": ["…"], "maybe": ["…"], "no": ["…"] } }
    ```
    - Canonical display strings, original capitalization preserved. Movie-line sayings keep their decorative curly quotes in the display string; movie titles are NOT included in JSON (metadata only, never displayed).
-   - Expected counts (spec): yes 49, maybe 22, no 33 = 104 sayings total. Engine test asserts exact expected multiset from the spec, so any missing/duplicated/mis-categorized saying fails the build.
+   - Expected counts (verified byte-level against the spec, 2026-09-23): yes 42, maybe 28, no 31 = 101 sayings total. (The earlier planning estimate of 49/22/33 = 104 was a miscount; the spec contains exactly 101 sayings.) "Error 404: Answer not found." legitimately appears in two categories (Sarcastic maybe, Tech no) — cross-category duplication is as written in the spec. Engine test asserts exact expected multiset from the spec, so any missing/duplicated/mis-categorized saying fails the build.
 2. **Engine API** (`src/domain/engine.ts`):
    ```ts
    export type OutcomeCategory = "yes" | "maybe" | "no";
@@ -74,7 +74,7 @@ No shared files between lanes: the engine stub (`src/domain/*`), UI contract, HT
 | Wave | Lane | Scope | Stop Condition | Dependencies |
 |---|---|---|---|---|
 | 0 | build (solo — single global pass: pinned shared surfaces) | Plan docs commit; Vite+TS+PWA scaffold; engine stub; verify.sh; typecheck+stub tests green | `scripts/verify.sh` exits 0 on the shell app | approved plan |
-| 1 | `smarter` E | Full 104-saying catalog JSON (exact spec strings); real `createBallEngine` (50/25/25, per-category no-repeat decks, atomic persistence, corrupt-storage fallback); deterministic tests (fixed-RNG category/draw/exhaustion/persistence, exact catalog multiset) | `tests/engine.test.ts` green under `vitest`; catalog counts 49/22/33 | Wave 0 contracts |
+| 1 | `smarter` E | Full 101-saying catalog JSON (exact spec strings); real `createBallEngine` (50/25/25, per-category no-repeat decks, atomic persistence, corrupt-storage fallback); deterministic tests (fixed-RNG category/draw/exhaustion/persistence, exact catalog multiset) | `tests/engine.test.ts` green under `vitest`; catalog counts 42/28/31 | Wave 0 contracts |
 | 1 | `smarter` U | `src/ui.ts` state machine per contract; `src/styles/main.css` per visual contract; `src/main.ts` wiring (engine, 1000 ms / reduced-motion 0 ms, SW register, live region, focus/labels); `tests/ui.test.ts` (transitions, duplicate-shake no-op, reveal/askAgain, reduced-motion immediate) | `tests/ui.test.ts` green; `tsc --noEmit` clean | Wave 0 contracts + stub engine |
 | 1 | `smarter` I | `public/icon.svg` per icon contract (glossy black 8-ball, white 8 emblem, no window) | File exists, valid SVG, referenced by existing manifest/html (no html edits) | Wave 0 (manifest links already in place) |
 | 2 | build (solo — sequential on live lane results) | Compose; run verify.sh; offline check (SW precache audit + no external URLs in dist); longest-saying wrapping check; ratio gate; docs; version 0.0.1; atomic commit + push `origin/dev` | verify.sh exit 0, dist scan clean, ratio ≤ 75%, commit pushed | Waves 1 E+U+I |
